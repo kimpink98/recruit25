@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大学生团队协作研究 · 参与者招募</title>
+<meta name="description" content="悉尼大学博士研究，面向华南师范大学在校生招募小组协作研究参与者，每位参与者可获100元补贴。">
+<meta name="theme-color" content="#F7F9FC">
+<meta property="og:type" content="website">
+<meta property="og:title" content="大学生团队协作研究 · 参与者招募">
+<meta property="og:description" content="华师在校生小组协作项目，记录讨论过程+一次访谈，每位参与者100元补贴。">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --bg:#F7F9FC; --surface:#FFFFFF; --text:#0F172A; --text-dim:#5A6478;
+  --line:rgba(15,23,42,.09); --accent:#1D5FD6; --accent-soft:#EAF1FE; --accent-ink:#FFFFFF;
+  --ok:#0E7A5F; --ok-soft:#E6F4EF;
+
+  --fs-hero:clamp(1.85rem,5.2vw,3.6rem);
+  --fs-h2:clamp(1.3rem,3.2vw,1.9rem);
+  --fs-h3:1.0625rem; --fs-body:clamp(1rem,.5vw + .88rem,1.0625rem); --fs-note:.8125rem;
+
+  --s1:8px; --s2:16px; --s3:clamp(14px,2.2vw,22px);
+  --s4:clamp(22px,3.6vw,36px); --s5:clamp(32px,5.4vw,56px);
+  --s6:clamp(44px,7vw,84px); --s7:clamp(56px,9vw,120px);
+  --pad:clamp(16px,4vw,40px);
+
+  --measure:66ch; --page:1080px;
+  --ease:cubic-bezier(.22,1,.36,1); --dur:600ms; --radius:14px;
+
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",
+              "Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+}
+[data-theme="dark"]{
+  --bg:#0A0E17; --surface:#111825; --text:#E8ECF4; --text-dim:#94A0B8;
+  --line:rgba(255,255,255,.10); --accent:#5B9BFF; --accent-soft:#152238; --accent-ink:#0A0E17;
+  --ok:#3DD6A8; --ok-soft:#0F2A24;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--font-sans); font-size:var(--fs-body); line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:2px solid var(--accent); outline-offset:3px; border-radius:4px;
+}
+p,li,dd,summary,figcaption{overflow-wrap:anywhere}
+
+.wrap{width:min(100% - 2*var(--pad), var(--page)); margin-inline:auto}
+.prose{max-width:var(--measure); min-width:0}
+
+.progress{
+  position:fixed; inset:0 0 auto 0; height:3px; background:var(--accent);
+  transform:scaleX(0); transform-origin:0 50%; z-index:50;
+}
+.topbar{
+  position:fixed; top:0; right:0; z-index:40;
+  padding:max(var(--s2), env(safe-area-inset-top)) max(var(--pad), env(safe-area-inset-right)) var(--s2) var(--pad);
+}
+.iconbtn{
+  appearance:none; border:1px solid var(--line); background:var(--surface);
+  color:var(--text); border-radius:999px; padding:6px 12px; font-size:var(--fs-note);
+  cursor:pointer; touch-action:manipulation; font-family:inherit;
+}
+@media (pointer:coarse){ .iconbtn{min-width:44px; min-height:44px; padding:10px 16px} }
+
+/* Hero */
+.hero{padding:var(--s7) 0 var(--s6);}
+.hero-inner{max-width:var(--measure)}
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--ok-soft); color:var(--ok);
+  font-size:var(--fs-note); font-weight:600; letter-spacing:.02em;
+  padding:6px 14px; border-radius:999px; margin-bottom:var(--s3);
+}
+.badge::before{content:""; width:7px; height:7px; border-radius:50%; background:currentColor}
+h1{
+  font-size:var(--fs-hero); line-height:1.14; letter-spacing:-.025em;
+  font-weight:680; margin:0 0 var(--s3);
+}
+.hero .sub{
+  font-size:clamp(1rem,1.8vw,1.1875rem); color:var(--text-dim);
+  margin:0 0 var(--s5); max-width:54ch;
+}
+.keyfacts{
+  display:flex; flex-wrap:wrap; gap:var(--s3) var(--s5);
+  padding:var(--s3) 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.kf{min-width:0}
+.kf b{
+  display:block; font-family:var(--font-mono); font-size:clamp(1.25rem,3vw,1.65rem);
+  font-weight:600; letter-spacing:-.01em; line-height:1.2;
+}
+.kf span{font-size:var(--fs-note); color:var(--text-dim)}
+.ctas{display:flex; flex-wrap:wrap; gap:var(--s2); margin-top:var(--s4)}
+.cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--accent); color:var(--accent-ink);
+  padding:14px 28px; border-radius:999px; text-decoration:none;
+  font-weight:620; font-size:1rem; touch-action:manipulation;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), filter .2s;
+}
+.cta.ghost{background:transparent; color:var(--text); border:1px solid var(--line)}
+@media (hover:hover) and (pointer:fine){
+  .cta:hover{transform:translateY(-2px); box-shadow:0 10px 28px rgba(29,95,214,.22)}
+  .cta.ghost:hover{box-shadow:0 10px 24px rgba(15,23,42,.08); border-color:var(--accent)}
+}
+
+/* 章节 */
+section{padding-block:var(--s6)}
+section + section{border-top:1px solid var(--line)}
+.chapter-no{
+  font-family:var(--font-mono); font-size:var(--fs-note); letter-spacing:.1em;
+  color:var(--accent); margin-bottom:var(--s2);
+}
+h2{
+  font-size:var(--fs-h2); line-height:1.28; letter-spacing:-.015em;
+  font-weight:660; margin:0 0 var(--s3); max-width:26ch;
+}
+h3{font-size:var(--fs-h3); margin:0 0 var(--s1); font-weight:640}
+p{margin:0 0 var(--s3)}
+.lead{font-size:1.0625rem; color:var(--text-dim); margin-bottom:var(--s4)}
+
+/* 条件清单 */
+.criteria{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); gap:var(--s3)}
+.crit{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); padding:var(--s3);
+}
+.crit > *{min-width:0}
+.crit h3{display:flex; align-items:center; gap:8px}
+.crit h3::before{
+  content:""; width:18px; height:18px; border-radius:50%; flex:none;
+  background:var(--accent-soft);
+  background-image:linear-gradient(var(--accent),var(--accent));
+  background-size:2px 8px, 8px 2px; background-position:center; background-repeat:no-repeat;
+}
+.crit.no h3::before{
+  background-image:linear-gradient(var(--text-dim),var(--text-dim));
+  transform:rotate(45deg);
+}
+.crit ul{margin:0; padding-left:1.1em}
+.crit li{margin-bottom:6px; color:var(--text-dim)}
+.crit li:last-child{margin-bottom:0}
+.crit li b{color:var(--text); font-weight:600}
+
+/* 折叠活动 */
+.acts{display:flex; flex-direction:column; gap:var(--s2)}
+details.act{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); overflow:hidden;
+  transition:border-color .25s;
+}
+details.act[open]{border-color:var(--accent)}
+details.act > summary{
+  cursor:pointer; list-style:none; padding:var(--s3);
+  display:grid; grid-template-columns:1fr auto; gap:4px var(--s3);
+  align-items:center; touch-action:manipulation;
+}
+details.act > summary::-webkit-details-marker{display:none}
+.sum-title{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+.sum-title strong{font-size:1.0625rem; font-weight:650}
+.sum-title em{
+  font-style:normal; font-family:var(--font-mono); font-size:var(--fs-note);
+  color:var(--accent); background:var(--accent-soft);
+  padding:2px 9px; border-radius:999px;
+}
+.sum-desc{grid-column:1/-1; font-size:var(--fs-note); color:var(--text-dim); margin:0}
+.chev{
+  grid-row:1; grid-column:2; width:30px; height:30px; border-radius:50%;
+  border:1px solid var(--line); display:grid; place-items:center;
+  font-size:14px; color:var(--text-dim); transition:transform .3s var(--ease), border-color .25s;
+}
+details.act[open] .chev{transform:rotate(180deg); border-color:var(--accent); color:var(--accent)}
+.act-body{padding:0 var(--s3) var(--s3); border-top:1px dashed var(--line); margin-top:0}
+.act-body > *{margin-top:var(--s3)}
+.act-body ul{margin:0; padding-left:1.1em; color:var(--text-dim)}
+.act-body li{margin-bottom:6px}
+.act-body li b{color:var(--text)}
+.note-inline{
+  font-size:var(--fs-note); color:var(--text-dim);
+  background:var(--bg); border-radius:8px; padding:10px 14px;
+}
+
+/* 补贴 */
+.reward{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); padding:var(--s4);
+  display:grid; grid-template-columns:auto 1fr; gap:var(--s3) var(--s4); align-items:center;
+}
+.reward .amt{
+  font-family:var(--font-mono); font-size:clamp(2.2rem,7vw,3.4rem);
+  font-weight:600; letter-spacing:-.03em; line-height:1; color:var(--accent);
+}
+.reward .amt small{font-size:.4em; font-weight:500; color:var(--text-dim); margin-left:4px}
+.reward p{margin:0; color:var(--text-dim)}
+.reward p b{color:var(--text)}
+
+/* 联系 */
+.contact{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr)); gap:var(--s2)}
+.cc{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); padding:var(--s3); min-width:0;
+}
+.cc span{display:block; font-size:var(--fs-note); color:var(--text-dim); margin-bottom:4px}
+.cc b{
+  font-family:var(--font-mono); font-size:1rem; font-weight:600;
+  word-break:break-all;
+}
+.copy{
+  margin-top:10px; font-family:inherit; font-size:var(--fs-note);
+  padding:6px 12px; border-radius:7px; cursor:pointer;
+  border:1px solid var(--line); background:var(--bg); color:var(--text);
+  touch-action:manipulation;
+}
+@media (pointer:coarse){ .copy{min-height:44px; padding:10px 16px} }
+
+/* 页脚 */
+footer{
+  padding:var(--s5) 0; border-top:1px solid var(--line);
+  font-size:var(--fs-note); color:var(--text-dim);
+}
+.footer-inner{display:flex; flex-direction:column; gap:var(--s2)}
+.footer-inner p{margin:0}
+.footer-inner strong{color:var(--text); font-weight:600}
+
+/* 揭示 */
+.reveal{opacity:0; transform:translateY(20px);
+  transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease)}
+.reveal.is-in{opacity:1; transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1 !important; transform:none !important; transition:none !important}
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important}
+}
+.no-anim *{transition:none !important}
+
+@media (max-width:767px){
+  section{padding-block:var(--s5)}
+  .hero{padding-block:clamp(76px,15vw,100px) var(--s5)}
+  .keyfacts{gap:var(--s3) var(--s4)}
+  .cta{width:100%}
+  .reward{grid-template-columns:1fr}
+}
+@media (max-width:479px){
+  :root{--fs-hero:clamp(1.65rem,8.4vw,2.1rem); --fs-h2:clamp(1.22rem,5.6vw,1.55rem)}
+  details.act > summary{padding:var(--s2) var(--s3)}
+  .act-body{padding:0 var(--s3) var(--s3)}
+}
+@media (max-height:480px) and (orientation:landscape){
+  .hero{padding-block:var(--s5) var(--s4)}
+}
+
+/* 二维码块 */
+.qr-block{
+  margin-top:var(--s3);
+  display:grid; grid-template-columns:auto 1fr; gap:var(--s3) var(--s4);
+  align-items:center;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); padding:var(--s3);
+}
+.qr-block img{
+  width:clamp(120px,26vw,180px); height:auto; aspect-ratio:1;
+  border-radius:8px; background:#fff; padding:6px;
+  border:1px solid var(--line);
+}
+.qr-block .qr-fallback{display:none}
+.qr-block.qr-missing img{display:none}
+.qr-block.qr-missing .qr-fallback{
+  display:grid; place-items:center; text-align:center; gap:4px;
+  width:clamp(120px,26vw,180px); aspect-ratio:1;
+  border:1px dashed var(--line); border-radius:8px;
+  font-size:var(--fs-note); color:var(--text-dim);
+}
+.qr-fallback small{font-size:11px; line-height:1.5}
+.qr-fallback code{font-family:var(--font-mono); font-size:10.5px}
+.qr-text b{display:block; font-size:1.0625rem; margin-bottom:4px}
+.qr-text p{margin:0; font-size:var(--fs-note); color:var(--text-dim)}
+
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+<div class="topbar">
+  <button class="iconbtn" id="themeBtn" aria-label="切换深浅色">◐ 主题</button>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="badge reveal">正在招募 · 第二轮</span>
+      <h1 class="reveal">大学生团队协作，是怎么创造性地解决问题的？</h1>
+      <p class="sub reveal">悉尼大学教育与社会工作学院博士研究，现面向华南师范大学在校生招募研究参与者。你的小组不用额外做任何事，我们只观察你们原本就在进行的协作。</p>
+
+      <div class="keyfacts reveal">
+        <div class="kf"><b>100<span style="font-size:.6em">元</span></b><span>每位参与者补贴</span></div>
+        <div class="kf"><b>2–5<span style="font-size:.6em">人</span></b><span>小组形式参与</span></div>
+        <div class="kf"><b>1<span style="font-size:.6em">次</span></b><span>项目后访谈</span></div>
+        <div class="kf"><b>2027.1</b><span>招募截止</span></div>
+      </div>
+
+      <div class="ctas">
+        <a class="cta reveal" href="#contact">立即联系报名</a>
+        <a class="cta ghost reveal" href="#activities">先看要做什么</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 研究背景 -->
+  <section>
+    <div class="wrap prose">
+      <div class="chapter-no reveal">01 · 关于这项研究</div>
+      <h2 class="reveal">我们想理解，协作中的创造力从哪里来</h2>
+      <p class="reveal">我是华南师范大学校友、悉尼大学教育与社会工作学院的在读博士生。这项研究关注大学生在团队协作中如何创造性地解决问题——不是考核你们做得好不好，而是想了解真实的协作过程是什么样的。</p>
+      <p class="reveal">第二轮招募现已开始。无论你的小组是课程作业、比赛项目，还是自主发起的志愿教学项目，只要正在以小组形式推进教育相关任务，都欢迎联系。</p>
+    </div>
+  </section>
+
+  <!-- 参与条件 -->
+  <section>
+    <div class="wrap">
+      <div class="chapter-no reveal">02 · 看看你是否符合</div>
+      <h2 class="reveal">参与条件</h2>
+      <p class="lead reveal">符合左侧全部条件即可报名；右侧情形暂不纳入本轮研究。</p>
+      <div class="criteria">
+        <div class="crit reveal">
+          <h3>符合这些，就可以报名</h3>
+          <ul>
+            <li><b>华南师范大学在校学生</b>，组内成员可来自不同专业</li>
+            <li>正在以<b>小组形式（2–5 人）</b>开展教育相关任务</li>
+            <li>任务类型包括但不限于：<b>教学设计、课程开发、学习应用开发、教育调研</b></li>
+            <li>课程小组作业、比赛项目或自主志愿教学项目<b>均可</b></li>
+            <li><b>教育技术学、各类师范专业优先</b>（非必需）</li>
+          </ul>
+        </div>
+        <div class="crit no reveal">
+          <h3>以下情形暂不纳入</h3>
+          <ul>
+            <li>项目<b>已经结束</b>、讨论过程已无法记录</li>
+            <li>小组人数<b>少于 2 人或多于 5 人</b></li>
+            <li>任务内容<b>与教育无关</b></li>
+            <li>成员<b>不同意</b>录音、录像或观察</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 参与方式：折叠 -->
+  <section id="activities">
+    <div class="wrap">
+      <div class="chapter-no reveal">03 · 具体要做什么</div>
+      <h2 class="reveal">研究活动按类别展开</h2>
+      <p class="lead reveal">点击每一类查看细节。全程按你们原有的项目安排进行，<b>不额外增加任务</b>。</p>
+
+      <div class="acts">
+        <details class="act reveal" open>
+          <summary>
+            <div class="sum-title"><strong>协作过程记录</strong><em>随项目进行</em></div>
+            <span class="chev" aria-hidden="true">▾</span>
+            <p class="sum-desc">记录团队课余日常讨论与协作过程，不做干预</p>
+          </summary>
+          <div class="act-body">
+            <ul>
+              <li><b>录音 / 录像</b>：对你们原有的团队讨论进行记录，次数与时间完全按项目原安排</li>
+              <li><b>群内观察</b>：在征得全体成员同意后，研究者将进入小组讨论群进行观察</li>
+              <li><b>文档收集</b>：任务相关的文档及与<b>AI的讨论记录</b></li>
+              <li>研究者<b>不参与</b>讨论、不给出建议，只做观察记录</li>
+            </ul>
+            <p class="note-inline">所有录音录像在转录后匿名化处理，原始文件仅研究者本人可访问。</p>
+          </div>
+        </details>
+
+        <details class="act reveal">
+          <summary>
+            <div class="sum-title"><strong>项目后访谈</strong><em>项目完成后 · 2 次</em></div>
+            <span class="chev" aria-hidden="true">▾</span>
+            <p class="sum-desc">分享你的协作体验，线上参与即可</p>
+          </summary>
+          <div class="act-body">
+            <ul>
+              <li><b>时长</b>：约60分钟，具体时间与你协商</li>
+              <li><b>形式</b>：一次集体访谈，一次单独访谈</li>
+              <li><b>内容</b>：围绕协作过程中的感受、分工、遇到的困难与解决方式</li>
+              <li>访谈全程<b>可随时跳过任何问题或终止</b></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="act reveal">
+          <summary>
+            <div class="sum-title"><strong>无需额外任务</strong><em>全程</em></div>
+            <span class="chev" aria-hidden="true">▾</span>
+            <p class="sum-desc">团队讨论次数、时间均按原有项目安排</p>
+          </summary>
+          <div class="act-body">
+            <ul>
+              <li>不需要为研究<b>额外开会、额外完成任务或提交材料</b></li>
+              <li>项目进度、内容与成果<b>完全由你们自己决定</b></li>
+              <li>研究不评价项目质量，也不向课程教师反馈任何个人表现</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 补贴 -->
+  <section>
+    <div class="wrap prose">
+      <div class="chapter-no reveal">04 · 研究补贴</div>
+      <h2 class="reveal">感谢你的时间</h2>
+      <div class="reward reveal">
+        <div class="amt">100<small>元 / 人</small></div>
+        <p>每位完整参与研究的成员可获得 <b>100 元研究补贴</b>。此外，根据数据收集的完整度，还将有<b>额外补助</b>。<br><span style="font-size:var(--fs-note)">【待补充：补贴发放方式与时间】</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 时间与隐私 -->
+  <section>
+    <div class="wrap prose">
+      <div class="chapter-no reveal">05 · 时间与隐私</div>
+      <h2 class="reveal">招募有效期与数据使用</h2>
+      <p class="reveal"><b>招募时间：2026 年 10 月 — 2027 年 1 月。</b>在此期间开展协作项目的华师同学均可报名，<b>无需现在就开始项目</b>——后续有合适的项目也欢迎随时联系。</p>
+      <p class="reveal">所收集的数据将<b>匿名化处理，仅用于学术研究</b>。你可以随时退出研究，已收集的数据将按你的意愿删除。</p>
+    </div>
+  </section>
+
+  <!-- 联系 -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="chapter-no reveal">06 · 报名与咨询</div>
+      <h2 class="reveal">联系项目负责人</h2>
+      <p class="lead reveal">钟金萍 · 悉尼大学教育与社会工作学院博士研究生</p>
+      <div class="contact">
+        <div class="cc reveal">
+          <span>微信（推荐）</span>
+          <b id="wx">NatalieZ_98</b>
+          <button class="copy" data-copy="NatalieZ_98">复制微信号</button>
+        </div>
+        <div class="cc reveal">
+          <span>邮箱</span>
+          <b id="mail">jzho0525@uni.sydney.edu.au</b>
+          <button class="copy" data-copy="jzho0525@uni.sydney.edu.au">复制邮箱</button>
+        </div>
+      </div>
+      <p class="note-inline reveal" style="margin-top:var(--s3)">添加微信时请注明：<b>昵称 + 年级 + “研究参与”</b>，可查看详细的参与者说明书(Participant information sheet)以及知情同意书。</p>
+    </div>
+<!-- 二维码：把微信二维码图存为 assets/images/qr.png -->
+      <div class="qr-block reveal">
+        <img src="assets/images/qr.png" width="360" height="360"
+             alt="项目负责人钟金萍的微信二维码，扫码添加好友，请注明昵称+年级+研究参与"
+             loading="lazy" decoding="async"
+             onerror="this.closest('.qr-block').classList.add('qr-missing')">
+        <div class="qr-fallback" aria-hidden="true">
+          <span>二维码占位</span>
+          <small>将微信二维码存为<br><code>assets/images/qr.png</code></small>
+        </div>
+        <div class="qr-text">
+          <b>扫码添加负责人微信</b>
+          <p>添加时请注明：昵称 + 年级 + “研究参与”</p>
+        </div>
+      </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p><strong>本研究已获得悉尼大学人类伦理委员会（HREC）批准，编号 2025/HE001506。</strong></p>
+    <p>研究数据匿名化处理，仅用于学术研究</p>
+    <p>欢迎将此页面分享给可能感兴趣的同学。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  var bar = document.querySelector('.progress');
+  if(!bar) return;
+  addEventListener('scroll', function(){
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+  }, {passive:true});
+})();
+
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  function read(){ try{ return localStorage.getItem('theme'); }catch(e){ return null; } }
+  function write(v){ try{ localStorage.setItem('theme', v); }catch(e){} }
+  var saved = read();
+  var dark = matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = saved || (dark ? 'dark' : 'light');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    root.classList.add('no-anim');
+    var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next; write(next);
+    setTimeout(function(){ root.classList.remove('no-anim'); }, 60);
+  });
+})();
+
+(function(){
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var txt = btn.dataset.copy, old = btn.textContent;
+      function done(){ btn.textContent = '已复制 ✓'; setTimeout(function(){ btn.textContent = old; }, 1600); }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done).catch(function(){ fallback(); });
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = txt; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); done(); }catch(e){ btn.textContent = txt; }
+        document.body.removeChild(ta);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
